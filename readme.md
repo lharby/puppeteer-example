@@ -1,5 +1,11 @@
-##### Simple Puppeteer example repo
+## Simple Puppeteer example
 
-From the terminal exec
+### Installation
 
-`npm run check`
+To install exec `npm install`
+
+All environment variables are stored in `.env` do not commit this file to the repo. 
+
+### Running
+
+From the terminal exec `npm run check`
