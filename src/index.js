@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer';
-import { sendMail } from './sendMail.js';
+import { submitForm } from './submitForm.js';
 
 const url = 'https://www.lidl.co.uk';
 // const textStr = 'Flavour of the Week: Italy';
@@ -10,7 +10,7 @@ const browser = await puppeteer.launch();
 const page = await browser.newPage();
 
 // Navigate the page to a URL.
-await page.goto(url, { waitUntil: 'networkidle0' });
+await page.goto(url, { waitUntil: 'networkidle2' });
 
 console.log(`Navigated to ${url}`);
 
@@ -20,10 +20,14 @@ const textSelector = await page.waitForSelector(
 );
 
 if (textSelector) {
-    sendMail();
-    console.log('Sucess');
+    submitForm();
+    console.log(`Success, found the text "${textStr}"`);
 } else {
     console.log(`Sorry did not find ${textStr}`);
 }
 
 await browser.close();
+
+export {
+    textStr
+}
